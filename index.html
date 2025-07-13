@@ -1,219 +1,258 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>테스트</title>
-      <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>테스트</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  
+
   <body>
-    <div class="circle-dim" style="top:-250px; left:-250px"></div>
-    <div class="circle-dim" style="top:-250px; right:-250px"></div>
-    <div class="circle-dim" style="bottom:-250px; left:-250px"></div>
-    <div class="circle-dim" style="bottom:-250px; right:-250px"></div>
+    <div class="circle-dim" style="top: -250px; left: -250px"></div>
+    <div class="circle-dim" style="top: -250px; right: -250px"></div>
+    <div class="circle-dim" style="bottom: -250px; left: -250px"></div>
+    <div class="circle-dim" style="bottom: -250px; right: -250px"></div>
 
-  <div class="AllContainer">
-<!-- 🗨️ -->
-  <div id ="history">
+    <div class="AllContainer">
+      <!-- 🗨️ -->
+      <div id="history">
+        <div class="history_red" id="back" data-result="빽도">
+          <p>빽</p>
+          <div class="double">
+            <p data-content="x">x</p>
+            <h2 data-content="2">2</h2>
+          </div>
+        </div>
 
-    <div class="history_red">
-      <p>빽</p>
-      <div class="double">
-        <p data-content="x">x</p>
-        <h2 data-content="2">2</h2> 
+        <div class="history_blue" id="do" data-result="도">
+          <p>도</p>
+          <div class="double">
+            <p data-content="x">x</p>
+            <h2 data-content="2">2</h2>
+          </div>
+        </div>
+        <div class="history_blue" id="gae" data-result="개">
+          개
+          <div class="double">
+            <p data-content="x">x</p>
+            <h2 data-content="2">2</h2>
+          </div>
+        </div>
+        <div class="history_blue" id="girl" data-result="걸">
+          걸
+          <div class="double">
+            <p data-content="x">x</p>
+            <h2 data-content="2">2</h2>
+          </div>
+        </div>
+        <div class="history_blue" id="yut" data-result="윷">
+          윷
+          <div class="double">
+            <p data-content="x">x</p>
+            <h2 data-content="2">2</h2>
+          </div>
+        </div>
+        <div class="history_blue" id="mo" data-result="모">
+          모
+          <div class="double">
+            <p data-content="x">x</p>
+            <h2 data-content="2">2</h2>
+          </div>
+        </div>
       </div>
-    </div>   
 
-  <div class="history_blue">도
-    <div class="double">
-      <p data-content="x">x</p>
-      <h2 data-content="2">2</h2> 
-    </div>
-  </div>
-  <div class="history_blue">개
-    <div class="double">
-      <p data-content="x">x</p>
-      <h2 data-content="2">2</h2> 
-    </div>
-  </div>
-  <div class="history_blue">걸
-    <div class="double">
-      <p data-content="x">x</p>
-      <h2 data-content="2">2</h2> 
-    </div>
-  </div>
-  <div class="history_blue">윷
-    <div class="double">
-      <p data-content="x">x</p>
-      <h2 data-content="2">2</h2> 
-    </div>
-  </div>
-  <div class="history_blue">모
-    <div class="double">
-      <p data-content="x">x</p>
-      <h2 data-content="2">2</h2> 
-    </div>
-  </div>
-
-</div>
-
-<!-- ❤️ -->
-    <div id="RedRank">
+      <!-- ❤️ -->
+      <div id="RedRank">
         <div class="profile-left">
           <div id="profile-Red">
-            <img class="profile-img" src="/" alt="레드팀 프로필">
-            <img class="winner" src="winner.svg">
+            <img class="profile-img" src="piece1.png" alt="레드팀 프로필" />
+            <!-- <img class="winner" src="winner.svg" /> -->
           </div>
           <div class="align">
             <p>어떤점수</p>
-          <div class ="turnAlign">
-            <h2>박재민</h2>
-            <div class="myturn">내 차례</div>
-          </div>
+            <div class="turnAlign">
+              <h2>구예진</h2>
+              <div class="myturn" id="redturn">내 차례</div>
+            </div>
           </div>
         </div>
-       
+
         <div class="separator">
-          <hr>
+          <hr />
         </div>
 
         <div class="pieces-left">
-          <div class="redBox" data-id="0"><img src="piece1.png" alt="레드 말 1"></div>
-          <div class="redBox" data-id="1"><img src="piece1.png" alt="레드 말 2"></div>
-          <div class="redBox" data-id="2"><img src="piece1.png" alt="레드 말 3"></div>
-        </div>
-      </div>
-  
-<!-- 💙 -->
-    <div id="BlueRank">
-      <div class="pieces-left">
-       <div class="blueBox" data-id="0"><img src="piece2.png" /></div>
-       <div class="blueBox" data-id="1"><img src="piece2.png" /></div>
-       <div class="blueBox" data-id="2"><img src="piece2.png" /></div>
-      </div>
-      
-      <div class="separator">
-        <hr>
-      </div>
-
-      <div class="profile-left">
-        <img id="profile-Blue" src="/" alt="블루팀 프로필">
-        <div class="align">
-          <p>어떤점수</p>
-          <div class ="turnAlign">
-            <h2>박재민</h2>
-            <div class="myturn">내 차례</div>
+          <div class="redBox" data-id="0">
+            <img src="piece1.png" alt="레드 말 0" />0
           </div>
-         </div>
-      </div>
-    </div>
-<!-- 💚 -->
-  <div id="MintRank">
-    <div class="pieces-right">
-      <div class="mintBox" data-id="0"><img src="piece3.png" alt="민트 말 1"></div>
-      <div class="mintBox" data-id="1"><img src="piece3.png" alt="민트 말 2"></div>
-      <div class="mintBox" data-id="2"><img src="piece3.png" alt="민트 말 3"></div>
-    </div>
-    
-    <div class="separator">
-      <hr>
-    </div>
-
-    <div class="profile-right">
-      <div class="align">
-        <p>어떤점수</p>
-        <div class ="turnAlign">
-          <div class="myturn">내 차례</div>
-          <h2>박재민</h2>
+          <div class="redBox" data-id="1">
+            <img src="piece1.png" alt="레드 말 1" />1
+          </div>
+          <div class="redBox" data-id="2">
+            <img src="piece1.png" alt="레드 말 2" />2
+          </div>
+          <button class="return" id="red_return">되돌아가기</button>
         </div>
       </div>
-      <img id="profile-Mint" src="/" alt="민트팀 프로필">
-    </div>
-    
-  </div>
-<!-- 💛 -->
-  <div id="YellowRank">
-    <div class="profile-right">
-      <div class="align">
-        <p>어떤점수</p>
-        <div class ="turnAlign">
-          <div class="myturn">내 차례</div>
-          <h2>박재민</h2>
+
+      <!-- 💙 -->
+      <div id="BlueRank">
+        <div class="pieces-left">
+          <div class="blueBox" data-id="0">
+            <img src="piece2.png" alt="블루 말 0" />0
+          </div>
+          <div class="blueBox" data-id="1">
+            <img src="piece2.png" alt="블루 말 1" />1
+          </div>
+          <div class="blueBox" data-id="2">
+            <img src="piece2.png" alt="블루 말 2" />2
+          </div>
+          <button class="return" id="blue_return">되돌아가기</button>
+        </div>
+
+        <div class="separator">
+          <hr />
+        </div>
+
+        <div class="profile-left">
+          <img id="profile-Blue" src="piece2.png" alt="블루팀 프로필" />
+          <div class="align">
+            <p>1등</p>
+            <div class="turnAlign">
+              <h2>김소리</h2>
+              <div class="myturn" id="blueturn">내 차례</div>
+            </div>
+          </div>
         </div>
       </div>
-      <img id="profile-Yellow" src="/" alt="옐로팀 프로필">
+      <!-- 💚 -->
+      <div id="MintRank">
+        <div class="pieces-right">
+          <button class="return" id="mint_return">되돌아가기</button>
+
+          <div class="mintBox" data-id="0">
+            <img src="piece3.png" alt="민트 말 0" />0
+          </div>
+          <div class="mintBox" data-id="1">
+            <img src="piece3.png" alt="민트 말 1" />1
+          </div>
+          <div class="mintBox" data-id="2">
+            <img src="piece3.png" alt="민트 말 2" />2
+          </div>
+        </div>
+
+        <div class="separator">
+          <hr />
+        </div>
+
+        <div class="profile-right">
+          <div class="align">
+            <p>어떤점수</p>
+            <div class="turnAlign">
+              <div class="myturn" id="mintturn">내 차례</div>
+              <h2>박재민</h2>
+            </div>
+          </div>
+          <img id="profile-Mint" src="piece3.png" alt="민트팀 프로필" />
+        </div>
       </div>
-    
-    <div class="separator">
-      <hr>
-    </div>
 
-    <div class="pieces-right">
-      <div class="yellowBox" data-id="0"><img src="piece4.png" alt="옐로 말 1"></div>
-      <div class="yellowBox" data-id="1"><img src="piece4.png" alt="옐로 말 2"></div>
-      <div class="yellowBox" data-id="2"><img src="piece4.png" alt="옐로 말 3"></div>
-    </div>
-    
-  </div>
-    
-  <button id="throw">주사위 던지기</button>
+      <!-- 💛 -->
+      <div id="YellowRank">
+        <div class="profile-right">
+          <div class="align">
+            <p>어떤점수</p>
+            <div class="turnAlign">
+              <div class="myturn" id="yelloturn">내 차례</div>
+              <h2>이영재</h2>
+            </div>
+          </div>
+          <img id="profile-Yellow" src="piece4.png" alt="옐로팀 프로필" />
+        </div>
 
+        <div class="separator">
+          <hr />
+        </div>
 
+        <div class="pieces-right">
+          <button class="return" id="yello_return">되돌아가기</button>
+
+          <div class="yellowBox" data-id="0">
+            <img src="piece4.png" alt="옐로 말 0" />0
+          </div>
+          <div class="yellowBox" data-id="1">
+            <img src="piece4.png" alt="옐로 말 1" />1
+          </div>
+          <div class="yellowBox" data-id="2">
+            <img src="piece4.png" alt="옐로 말 2" />2
+          </div>
+        </div>
+      </div>
+
+      <button id="throw">주사위 던지기</button>
 
       <div class="allBoard">
-          <div class="board">
-            <!-- 모서리 칸 -->
-            <div class="tile corner" id="0d" style="--x: 5; --y: 5"></div>
-            <div class="tile corner" id="5d" style="--x: 5; --y: 0;"></div>
-            <div class="tile corner" id="10d" style="--x: 0; --y: 0;"></div>
-            <div class="tile corner" id="15d" style="--x: 0; --y: 5;"></div>
-            
-            <!-- 1 -->
-            <div class="tile normal" id="1d" style="--x: 5; --y: 4;"></div>
-            <div class="tile normal" id="2d" style="--x: 5; --y: 3;"></div>
-            <div class="tile normal" id="3d" style="--x: 5; --y: 2;"></div>
-            <div class="tile normal" id="4d" style="--x: 5; --y: 1;"></div>    
+        <div class="board">
+          <!-- 마지막칸 -->
+          <div class="tile corner" id="20d" style="--x: 5; --y: 5"></div>
 
-            <!-- 2 -->
-            <div class="tile normal" id="6d" style="--x: 4; --y: 0;"></div> 
-            <div class="tile normal" id="7d" style="--x: 3; --y: 0;"></div>
-            <div class="tile normal" id="8d" style="--x: 2; --y: 0;"></div>
-            <div class="tile normal" id="9d" style="--x: 1; --y: 0;"></div>
+          <!-- 모서리 칸 -->
+          <div class="tile corner" id="0d" style="--x: 5; --y: 5"></div>
+          <div class="tile corner" id="5d" style="--x: 5; --y: 0"></div>
+          <div class="tile corner" id="10d" style="--x: 0; --y: 0"></div>
+          <div class="tile corner" id="15d" style="--x: 0; --y: 5"></div>
 
-            <!-- 3 -->
-            <div class="tile normal" id="11d" style="--x: 0; --y: 1;"></div>
-            <div class="tile normal" id="12d" style="--x: 0; --y: 2;"></div>
-            <div class="tile normal" id="13d" style="--x: 0; --y: 3;"></div>
-            <div class="tile normal" id="14d" style="--x: 0; --y: 4;"></div>
+          <!-- 1 -->
+          <div class="tile normal" id="1d" style="--x: 5; --y: 4"></div>
+          <div class="tile normal" id="2d" style="--x: 5; --y: 3"></div>
+          <div class="tile normal" id="3d" style="--x: 5; --y: 2"></div>
+          <div class="tile normal" id="4d" style="--x: 5; --y: 1"></div>
 
-            <!-- 4  -->
-            <div class="tile normal" id="16d" style="--x: 1; --y: 5;"></div>
-            <div class="tile normal" id="17d" style="--x: 2; --y: 5;"></div>
-            <div class="tile normal" id="18d" style="--x: 3; --y: 5;"></div>
-            <div class="tile normal" id="19d" style="--x: 4; --y: 5;"></div>
+          <!-- 2 -->
+          <div class="tile normal" id="6d" style="--x: 4; --y: 0"></div>
+          <div class="tile normal" id="7d" style="--x: 3; --y: 0"></div>
+          <div class="tile normal" id="8d" style="--x: 2; --y: 0"></div>
+          <div class="tile normal" id="9d" style="--x: 1; --y: 0"></div>
 
-            
-            <!-- 사이 -->
-            <div class="tile normal" id="5_1d" style="--x: 4; --y: 1;"></div>
-            <div class="tile normal" id="5_2d" style="--x: 3.25; --y: 1.75;"></div>
-      
-            <div class="tile normal" id="10_1d" style="--x: 1; --y: 1;"></div>
-            <div class="tile normal" id="10_2d" style="--x: 1.75; --y: 1.75;"></div>
+          <!-- 3 -->
+          <div class="tile normal" id="11d" style="--x: 0; --y: 1"></div>
+          <div class="tile normal" id="12d" style="--x: 0; --y: 2"></div>
+          <div class="tile normal" id="13d" style="--x: 0; --y: 3"></div>
+          <div class="tile normal" id="14d" style="--x: 0; --y: 4"></div>
 
-            <div class="tile normal" id="15_1d" style="--x: 1; --y: 4;"></div>
-            <div class="tile normal" id="15_2d" style="--x: 1.75; --y: 3.25;"></div>
+          <!-- 4  -->
+          <div class="tile normal" id="16d" style="--x: 1; --y: 5"></div>
+          <div class="tile normal" id="17d" style="--x: 2; --y: 5"></div>
+          <div class="tile normal" id="18d" style="--x: 3; --y: 5"></div>
+          <div class="tile normal" id="19d" style="--x: 4; --y: 5"></div>
 
-            <div class="tile normal" id="center_1d" style="--x: 3.25; --y: 3.25;"></div>
-            <div class="tile normal" id="center_2d" style="--x: 4; --y: 4;"></div>
+          <!-- 사이 -->
+          <div class="tile normal" id="5_1d" style="--x: 4; --y: 1"></div>
+          <div class="tile normal" id="5_2d" style="--x: 3.25; --y: 1.75"></div>
+          <div class="tile normal" id="5_3d" style="--x: 1.75; --y: 3.25"></div>
+          <div class="tile normal" id="5_4d" style="--x: 1; --y: 4"></div>
 
-            <!-- 센터 -->
-            <div class="tile center"></div>
-          </div>
+          <div class="tile normal" id="10_1d" style="--x: 1; --y: 1"></div>
+          <div
+            class="tile normal"
+            id="10_2d"
+            style="--x: 1.75; --y: 1.75"
+          ></div>
+
+          <div
+            class="tile normal"
+            id="center_1d"
+            style="--x: 3.25; --y: 3.25"
+          ></div>
+          <div class="tile normal" id="center_2d" style="--x: 4; --y: 4"></div>
+
+          <!-- 센터 -->
+          <div class="tile center" id="center"></div>
+        </div>
       </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script src="test3.js"></script>
   </body>
-  </html>
+</html>
