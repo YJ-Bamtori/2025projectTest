@@ -8,13 +8,46 @@
   </head>
 
   <body>
-    <div class="circle-dim" style="top: -250px; left: -250px"></div>
-    <div class="circle-dim" style="top: -250px; right: -250px"></div>
-    <div class="circle-dim" style="bottom: -250px; left: -250px"></div>
-    <div class="circle-dim" style="bottom: -250px; right: -250px"></div>
-
     <div class="AllContainer">
+      <!-- dim -->
+      <div
+        class="circle-dim"
+        style="top: 0px; left: 0px; transform: translate(-250px, -250px)"
+      ></div>
+      <div
+        class="circle-dim"
+        style="top: 0px; right: 0px; transform: translate(250px, -250px)"
+      ></div>
+      <div
+        class="circle-dim"
+        style="bottom: 0px; left: 0px; transform: translate(-250px, 250px)"
+      ></div>
+      <div
+        class="circle-dim"
+        style="bottom: 0px; right: 0px; transform: translate(250px, 250px)"
+      ></div>
+
+      <div class="modal" id="missionModal">
+        <div class="modal-top">
+          <img src="#" alt="미션 이미지" />
+        </div>
+        <div class="modal-contents">
+          <div class="contentWrap">
+            <h1>얼차려</h1>
+            <p>이영재 중대장의 분노! <br />“팔굽혀펴기 30회 실시!”</p>
+            <div class="condition">
+              <img src="#" />
+              <p>조건</p>
+              <p>정자세 팔굽혀펴기</p>
+              <p><b>30회</b></p>
+            </div>
+          </div>
+          <button id="closeModal">시작하기</button>
+        </div>
+      </div>
+
       <!-- 🗨️ -->
+
       <div id="history">
         <div class="history_red" id="back" data-result="빽도">
           <p>빽</p>
@@ -84,17 +117,17 @@
         <div class="pieces-left">
           <div id="redBox0">
             <div class="redBox" data-id="0">
-              <img src="piece1.png" alt="레드 말 0" />0
+              <img src="piece1.png" alt="레드 말 0" />
             </div>
           </div>
           <div id="redBox1">
             <div class="redBox" data-id="1">
-              <img src="piece11.png" alt="레드 말 1" />1
+              <img src="piece11.png" alt="레드 말 1" />
             </div>
           </div>
           <div id="redBox2">
             <div class="redBox" data-id="2">
-              <img src="piece11.png" alt="레드 말 2" />2
+              <img src="piece11.png" alt="레드 말 2" />
             </div>
           </div>
 
@@ -107,17 +140,17 @@
         <div class="pieces-left">
           <div id="blueBox0">
             <div class="blueBox" data-id="0">
-              <img src="piece21.png" alt="블루 말 0" />0
+              <img src="piece21.png" alt="블루 말 0" />
             </div>
           </div>
           <div id="blueBox1">
             <div class="blueBox" id="blueBox1" data-id="1">
-              <img src="piece21.png" alt="블루 말 1" />1
+              <img src="piece21.png" alt="블루 말 1" />
             </div>
           </div>
           <div id="blueBox2">
             <div class="blueBox" id="blueBox2" data-id="2">
-              <img src="piece21.png" alt="블루 말 2" />2
+              <img src="piece21.png" alt="블루 말 2" />
             </div>
           </div>
           <button class="return" id="blue_return">되돌아가기</button>
@@ -128,7 +161,9 @@
         </div>
 
         <div class="profile-left">
-          <img id="profile-Blue" src="piece2.png" alt="블루팀 프로필" />
+          <div id="profile-Blue">
+            <img class="profile-img" src="piece2.png" alt="블루팀 프로필" />
+          </div>
           <div class="align">
             <p id="rankblue">2등</p>
             <div class="turnAlign">
@@ -144,17 +179,17 @@
           <button class="return" id="mint_return">되돌아가기</button>
           <div id="mintBox0">
             <div class="mintBox" data-id="0">
-              <img src="piece31.png" alt="민트 말 0" />0
+              <img src="piece31.png" alt="민트 말 0" />
             </div>
           </div>
           <div id="mintBox1">
             <div class="mintBox" data-id="1">
-              <img src="piece31.png" alt="민트 말 1" />1
+              <img src="piece31.png" alt="민트 말 1" />
             </div>
           </div>
           <div id="mintBox2">
             <div class="mintBox" data-id="2">
-              <img src="piece31.png" alt="민트 말 2" />2
+              <img src="piece31.png" alt="민트 말 2" />
             </div>
           </div>
         </div>
@@ -171,7 +206,9 @@
               <h2>박재민</h2>
             </div>
           </div>
-          <img id="profile-Mint" src="piece3.png" alt="민트팀 프로필" />
+          <div id="profile-Mint">
+            <img class="profile-img" src="piece1.png" alt="옐로팀 프로필" />
+          </div>
         </div>
       </div>
 
@@ -185,7 +222,9 @@
               <h2>이영재</h2>
             </div>
           </div>
-          <img id="profile-Yellow" src="piece4.png" alt="옐로팀 프로필" />
+          <div id="profile-Yellow">
+            <img class="profile-img" src="piece2.png" alt="옐로팀 프로필" />
+          </div>
         </div>
 
         <div class="separator">
@@ -196,17 +235,17 @@
           <button class="return" id="yellow_return">되돌아가기</button>
           <div id="yellowBox0">
             <div class="yellowBox" data-id="0">
-              <img src="piece41.png" alt="옐로 말 0" />0
+              <img src="piece41.png" alt="옐로 말 0" />
             </div>
           </div>
           <div id="yellowBox1">
             <div class="yellowBox" data-id="1">
-              <img src="piece41.png" alt="옐로 말 1" />1
+              <img src="piece41.png" alt="옐로 말 1" />
             </div>
           </div>
           <div id="yellowBox2">
             <div class="yellowBox" data-id="2">
-              <img src="piece41.png" alt="옐로 말 2" />2
+              <img src="piece41.png" alt="옐로 말 2" />
             </div>
           </div>
         </div>
@@ -226,7 +265,9 @@
           <div class="tile corner" id="15d" style="--x: 0; --y: 5"></div>
 
           <!-- 1 -->
-          <div class="tile normal" id="1d" style="--x: 5; --y: 4"></div>
+          <div class="tile normal" id="1d" style="--x: 5; --y: 4">
+            <img class="mission" id="missions" src="mission.png" />
+          </div>
           <div class="tile normal" id="2d" style="--x: 5; --y: 3"></div>
           <div class="tile normal" id="3d" style="--x: 5; --y: 2"></div>
           <div class="tile normal" id="4d" style="--x: 5; --y: 1"></div>
@@ -246,7 +287,9 @@
           <!-- 4  -->
           <div class="tile normal" id="16d" style="--x: 1; --y: 5"></div>
           <div class="tile normal" id="17d" style="--x: 2; --y: 5"></div>
-          <div class="tile normal" id="18d" style="--x: 3; --y: 5"></div>
+          <div class="tile normal" id="18d" style="--x: 3; --y: 5">
+            <img class="mission" id="missions" src="mission.png" />
+          </div>
           <div class="tile normal" id="19d" style="--x: 4; --y: 5"></div>
 
           <!-- 사이 -->
