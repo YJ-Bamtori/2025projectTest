@@ -46,6 +46,38 @@ const routes = {
     '20d',
   ],
   shortcut_center: ['center', 'center_1d', 'center_2d', '20d'],
+  all: [
+    '0d',
+    '1d',
+    '2d',
+    '3d',
+    '4d',
+    '5d',
+    '6d',
+    '7d',
+    '8d',
+    '9d',
+    '10d',
+    '11d',
+    '12d',
+    '13d',
+    '14d',
+    '15d',
+    '16d',
+    '17d',
+    '18d',
+    '19d',
+    '20d',
+    '5_1d',
+    '5_2d',
+    'center',
+    '5_3d',
+    '5_4d',
+    '10_1d',
+    '10_2d',
+    'center_1d',
+    'center_2d',
+  ],
 };
 
 // 팀 생성
@@ -125,6 +157,10 @@ let currentTeamIndex = 0;
 let currentDiceNum = 0;
 let currentDiceHistoryId = [];
 let currentDiceHistory = [];
+
+// 미션카드 위치
+let missionCardPosition = [];
+
 
 // 팀 턴 바꾸기
 function changeTurn() {
@@ -295,6 +331,7 @@ function setupHistoryClick(currentTeam, teamId, currentselectedPiece) {
 
       updateHistoryDisplay();
       movePiece(removehistory, currentTeam, currentselectedPiece);
+      getMissionCard(currentselectedPiece, currentTeam);
 
       if (teamScore[currentTeam].finished >= 3) {
         currentDiceHistoryId.length = [];
@@ -567,27 +604,45 @@ function finishGame() {
   // 🔴이거 이상한거같기도하고 아닌거같기도하고.
 }
 
-// function createMissionCard() {
-//   const tiles = document.querySelectorAll('.tile.corner, .tile.normal');
-//   const randomTile = tiles[Math.floor(Math.random() * tiles.length)];
-//   const missionCard = document.createElement('img');
+function createMissionCard() {
+  $('.mission').remove();
+  let filtered = routes.all.filter((tileId) => tileId !== '0d' && tileId !== '20d');
 
-//   missionCard.src = 'mission.png';
-//   missionCard.className = 'mission';
-//   missionCard.style.position = 'absolute';
+  let shuffled = [...filtered].sort(() => 0.5 - Math.random());
+  let selected = shuffled.slice(0, 5);
 
-//   // 타일의 위치를 기준으로 mission 배치
-//   const tileRect = randomTile.getBoundingClientRect();
-//   const boardRect = document.querySelector('.board').getBoundingClientRect();
+  missionCardPosition = selected;
+  console.log('미션카드 위치:', missionCardPosition);
 
-//   missionCard.style.top = `${tileRect.top - boardRect.top}px`;
-//   missionCard.style.left = `${tileRect.left - boardRect.left}px`;
+  // 2. 각 위치에 미션 카드 추가
+  selected.forEach((tileId) => {
+    let $missionImg = $('<img>', {
+      class: 'mission',
+      id: `mission_${tileId}`,
+      src: 'mission.png',
+    });
 
-//   document.querySelector('.board').appendChild(missionCard);
-// }
+    $(`#${tileId}`).append($missionImg);
+  });
+}
 
-// 호출 예시
-createMissionCard();
+function getMissionCard(currentselectedPiece, currentTeam) {
+  let currentPosId = teamInfo[currentTeam][currentselectedPiece].position;
+
+  if (missionCardPosition.includes(currentPosId)) {
+    // 현재 위치에 미션 카드가 있다면
+    console.log('미션카드 획득:', currentPosId);
+    // 해당 위치 미션카드 제거
+    $(`#mission_${currentPosId}`).remove();
+
+
+  }
+}
+
+function showMissionCard() {
+  // 미션카드 보여주기
+}
+
 
 // 해야할 일,
 // clear. 도착했을때 로직 : 현재 루트의 index를 넘어가면 도착 -> 도착하면 finish = true, appendto, 클릭 불가능한 상태로 변경.
@@ -601,3 +656,8 @@ createMissionCard();
 // clear. 내가 움직일 말이 없으면 (히스토리에 남은게 있게 되면 차례를 바꿀수 없음.), 자동으로 차례 이동
 // new 9. 내 손에 있는 말은 빽도 선택 했을 시, 움직임 불 가능
 // new 10. 업었을때, 업힌말은 선택이 불가능하게 해야함...
+
+// 게임 시작 시 미션 카드 생성
+createMissionCard();
+
+
