@@ -333,6 +333,7 @@ function setupHistoryClick(currentTeam, teamId, currentselectedPiece) {
       movePiece(removehistory, currentTeam, currentselectedPiece);
       getMissionCard(currentselectedPiece, currentTeam);
 
+
       if (teamScore[currentTeam].finished >= 3) {
         currentDiceHistoryId.length = [];
         currentDiceHistory = [];
@@ -344,6 +345,9 @@ function setupHistoryClick(currentTeam, teamId, currentselectedPiece) {
           .attr('disabled', true)
           .html('주사위 던지기');
       }
+
+
+      // ❗❗만약 마지막 이동에서 카드를 획득했을때, 다음 턴으로 넘어가지 않고, 대기하는 경우 추가
 
       if (currentDiceHistoryId.length > 0) {
         $(`.${teamId}`).addClass('selectable').css('pointer-events', 'auto');
@@ -630,17 +634,27 @@ function getMissionCard(currentselectedPiece, currentTeam) {
   let currentPosId = teamInfo[currentTeam][currentselectedPiece].position;
 
   if (missionCardPosition.includes(currentPosId)) {
-    // 현재 위치에 미션 카드가 있다면
-    console.log('미션카드 획득:', currentPosId);
-    // 해당 위치 미션카드 제거
+
+    // 미션카드 제거
     $(`#mission_${currentPosId}`).remove();
 
-
+    let index = missionCardPosition.indexOf(currentPosId);
+    if (index > -1) {
+      missionCardPosition.splice(index, 1);
+    }
+    console.log('남은 미션카드 위치:', missionCardPosition);
   }
+
+
+
+  // 미션카드 보여주기
+  showMissionCard();
+
+  //새로운 미션 카드 갱신
 }
 
 function showMissionCard() {
-  // 미션카드 보여주기
+  $('#missionModal').show();
 }
 
 
