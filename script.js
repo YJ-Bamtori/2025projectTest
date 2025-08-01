@@ -80,6 +80,18 @@ const routes = {
   ],
 };
 
+
+
+let settings = {
+  playerCount: 4, // 플레이어 수
+  background: 'default', // 배경 img
+  pieceData: ["1p", "2p", "3p", "4p"], // 말 img
+  diceData: 'default' // 주사위 img
+};
+
+
+
+
 // 팀 생성
 const teams = ['red', 'blue', 'mint', 'yellow'];
 
@@ -349,17 +361,32 @@ function setupHistoryClick(currentTeam, teamId, currentselectedPiece) {
 
       // ❗❗만약 마지막 이동에서 카드를 획득했을때, 다음 턴으로 넘어가지 않고, 대기하는 경우 추가
 
+
+      // 만약 히스토리가 남아있으면, 말선택가능한 상태로 유지
+      // 만약 히스토리가 남아있지 않다면, 말 선택 불가능. 
+      // 만약 히스토리와 던지기버튼이 비활성화 상태라면, 차례변경
+      // 미션카드 중에는 던지기 버튼 disabled, 히스토리 버튼 disabled, piece 선택 disabled, 안보이게 처리
+      // 만약 히스토리와 던지기 버튼이 비활인데, 미션카드가 나와있다면, 버튼 제거하고 대기.
+
       if (currentDiceHistoryId.length > 0) {
         $(`.${teamId}`).addClass('selectable').css('pointer-events', 'auto');
+        console.log('미션카드 중');
       } else {
         $(`.${teamId}`).removeClass('selectable').css('pointer-events', 'none');
+
         if ($('#throw').hasClass('disabled')) {
-          changeTurn();
-          $('#throw')
-            .removeClass('disabled')
-            .attr('disabled', false)
-            .html('주사위 던지기');
-          alert('다음턴');
+
+          if ($('#missionModal').is(':visible')) {
+            console.log('미션카드가 남아있습니다. 다음 턴으로 넘어가지 않습니다.');
+          } else {
+            changeTurn();
+            $('#throw')
+              .removeClass('disabled')
+              .attr('disabled', false)
+              .html('주사위 던지기');
+            alert('다음턴');
+            console.log('다음 턴으로 넘어갑니다.');
+          }
         }
       }
     });
@@ -407,7 +434,6 @@ function movePiece(removehistory, currentTeam, currentselectedPiece) {
 
   $(pieceSelector).appendTo(`#${afterPosId}`);
 
-  // 🔴 말 함께 이동 - 말이 함께 도착했을때, 난리남
   const carriedPieces = teamInfo[currentTeam][currentselectedPiece].carries;
 
   carriedPieces.forEach((carriedId) => {
@@ -453,7 +479,6 @@ function pieceObserver(afterPosId, pieceSelector, currentTeam) {
           teamPieces.some((p) => p.carries.includes(piece.idx))
         )
     );
-    // console.log(foundPiece); // foundPiece는 해당말의 teaminfo를 보여줌.
 
     if (foundPiece) {
       // 1. 우리 팀이면 -> 업기
@@ -462,10 +487,8 @@ function pieceObserver(afterPosId, pieceSelector, currentTeam) {
         const carriedPieceId = foundPiece.idx; // 업혀진 1번 말의 "idx"숫자
 
         teamInfo[currentTeam][carriedPieceId].carries.push(pieceId);
-        //🔴문제! : 업은 경우 우리팀 두명 다 선택이 가능한 상태가 되어버림. 해당 형태는 디자인해야함
 
         $(pieceSelector).hide();
-        // 1번말의 carries.length의 숫자가 나타나게하기
       }
       // 2. 상대 팀이면
       else {
@@ -577,17 +600,10 @@ function calculateRankings() {
     $(`#rank${teamData.team}`).text(rankText);
   });
 }
-// // 5-1. 미션 카드 얻는 조건 : 해당 위치를 지나가면, 미션카드 획득.
-// 5-2. 랜덤 생성 조건 : 미션카드는 퀴즈형.
-// 5-3. 퀴즈형 : 퀴즈형인 경우 선택 문제 생성.
-// 5-4. 보상 : 상대말을 공격하거나, 내 말에게 도움이 되는 기능
-// 5-5. 벌칙 : 당장 내 말에게 불이익을 줌.
-// 5-6. 미션카드 밸런스생각하기
 
 // 6-1. 만약 내 position이 0d이고, 내말이 #0d에 appendTo 되어있을 때, 빽도가 나오지 않으면 도착,
 // 6-2. 빽도가 나왔다면 다시 1d로 이동.
 
-// 7-1. finish인 말이 3개인 팀 3개가 나오면 게임 종료.
 
 function finishGame() {
   teams.forEach((team) => {
@@ -605,7 +621,6 @@ function finishGame() {
   if (teamsWith3Finished.length >= 3) {
     alert(`게임 종료! 승리한 팀: ${teamsWith3Finished.join(', ')}`);
   }
-  // 🔴이거 이상한거같기도하고 아닌거같기도하고.
 }
 
 function createMissionCard() {
@@ -643,14 +658,9 @@ function getMissionCard(currentselectedPiece, currentTeam) {
       missionCardPosition.splice(index, 1);
     }
     console.log('남은 미션카드 위치:', missionCardPosition);
+    showMissionCard();
   }
 
-
-
-  // 미션카드 보여주기
-  showMissionCard();
-
-  //새로운 미션 카드 갱신
 }
 
 function showMissionCard() {

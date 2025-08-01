@@ -1,14 +1,13 @@
 @font-face {
   font-family: 'Paperlogy-8ExtraBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2')
-    format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Pretendard-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
-    format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -22,6 +21,7 @@
     'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 }
+
 body {
   overflow-x: hidden;
 }
@@ -107,6 +107,7 @@ body {
   border: 2px solid #ffffff;
   overflow: hidden;
 }
+
 #profile-Blue {
   width: 72px;
   height: 72px;
@@ -124,6 +125,7 @@ body {
   border: 2px solid #ffffff;
   overflow: hidden;
 }
+
 #profile-Yellow {
   width: 72px;
   height: 72px;
@@ -140,6 +142,7 @@ body {
   text-align: left;
   gap: 10px;
 }
+
 .profile-right {
   margin-right: 32px;
   display: flex;
@@ -155,12 +158,14 @@ body {
   justify-content: center;
   flex: 1;
 }
+
 .pieces-left {
   display: flex;
   margin-left: 32px;
   gap: 12px;
   justify-content: left;
 }
+
 .pieces-right {
   display: flex;
   margin-right: 32px;
@@ -177,6 +182,7 @@ body {
   height: 46.33px;
   pointer-events: none;
 }
+
 .mintBox {
   border-radius: 13.133px;
   border: 1.642px solid #fff;
@@ -186,6 +192,7 @@ body {
   height: 46.33px;
   pointer-events: none;
 }
+
 .yellowBox {
   border-radius: 13.133px;
   border: 1.642px solid #fff;
@@ -195,6 +202,7 @@ body {
   height: 46.33px;
   pointer-events: none;
 }
+
 .redBox {
   border-radius: 13.133px;
   border: 1.642px solid #fff;
@@ -204,11 +212,13 @@ body {
   height: 50px;
   pointer-events: none;
 }
+
 .redBox img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
+
 .redBox.selectable {
   outline: 3px dashed red;
   transform: scale(1.1);
@@ -216,6 +226,7 @@ body {
   cursor: pointer;
   pointer-events: auto;
 }
+
 .blueBox.selectable {
   outline: 3px dashed red;
   transform: scale(1.1);
@@ -223,6 +234,7 @@ body {
   cursor: pointer;
   pointer-events: auto;
 }
+
 .mintBox.selectable {
   outline: 3px dashed red;
   transform: scale(1.1);
@@ -230,6 +242,7 @@ body {
   cursor: pointer;
   pointer-events: auto;
 }
+
 .yellowBox.selectable {
   outline: 3px dashed red;
   transform: scale(1.1);
@@ -237,6 +250,7 @@ body {
   cursor: pointer;
   pointer-events: auto;
 }
+
 .circle-dim {
   border-radius: 1000px;
   background: rgba(0, 0, 0, 0.4);
@@ -265,9 +279,11 @@ body {
 
 .profile-img {
   width: 100%;
-  object-fit: cover; /* 비율 왜곡 없이 꽉 채움 */
+  object-fit: cover;
+  /* 비율 왜곡 없이 꽉 채움 */
   display: block;
 }
+
 .winner {
   position: absolute;
 
@@ -298,12 +314,15 @@ body {
   bottom: 32px;
   left: auto;
   right: auto;
-  cursor: pointer; /* 마우스 모양 금지 */
+  cursor: pointer;
+  /* 마우스 모양 금지 */
 }
 
 #throw.disabled {
-  pointer-events: none; /* 마우스 이벤트 완전 차단 */
-  cursor: not-allowed; /* 마우스 모양 금지 */
+  pointer-events: none;
+  /* 마우스 이벤트 완전 차단 */
+  cursor: not-allowed;
+  /* 마우스 모양 금지 */
   filter: grayscale(100%);
   background-color: #ccc;
   color: #666;
@@ -318,6 +337,7 @@ body {
   gap: 12px;
   z-index: 20;
 }
+
 .history_blue {
   width: 40px;
   height: 40px;
@@ -334,6 +354,7 @@ body {
   display: none;
   pointer-events: none;
 }
+
 .history_blue.selectable {
   outline: 3px dashed red;
   transform: scale(1.1);
@@ -347,11 +368,13 @@ body {
   height: 50px;
   overflow: hidden;
 }
+
 .pieces-right img {
   width: 50px;
   height: 50px;
   overflow: hidden;
 }
+
 .history_red {
   width: 40px;
   height: 40px;
@@ -368,6 +391,7 @@ body {
   display: none;
   pointer-events: none;
 }
+
 .history_red.selectable {
   outline: 3px dashed red;
   transform: scale(1.1);
@@ -384,6 +408,7 @@ body {
   right: -12px;
   bottom: -12px;
 }
+
 .double p {
   font-size: 14px;
   font-weight: 800;
@@ -392,6 +417,7 @@ body {
   z-index: 0;
   line-height: 1.6;
 }
+
 .double h2 {
   font-size: 20px;
   font-weight: 800;
@@ -399,12 +425,14 @@ body {
   color: #ffaa3b;
   z-index: 0;
 }
+
 .double h2::before {
   z-index: -1;
   content: attr(data-content);
   position: absolute;
   -webkit-text-stroke: 4px #1a1a1a;
 }
+
 .double p::before {
   z-index: -1;
   content: attr(data-content);
@@ -414,10 +442,14 @@ body {
 
 /* 비활성화 */
 button:disabled {
-  background-color: #ccc; /* 회색 배경 */
-  color: #666; /* 글자도 회색 */
-  cursor: not-allowed; /* 클릭 금지 커서 */
-  filter: grayscale(100%); /* 그레이스케일 효과 */
+  background-color: #ccc;
+  /* 회색 배경 */
+  color: #666;
+  /* 글자도 회색 */
+  cursor: not-allowed;
+  /* 클릭 금지 커서 */
+  filter: grayscale(100%);
+  /* 그레이스케일 효과 */
 }
 
 .return {
@@ -435,11 +467,15 @@ button:disabled {
   0% {
     transform: skew(45deg) translateX(0px) translateY(-40px);
   }
+
   50% {
-    transform: skew(45deg) translateX(0px) translateY(-45px); /* 위로 이동 */
+    transform: skew(45deg) translateX(0px) translateY(-45px);
+    /* 위로 이동 */
   }
+
   100% {
-    transform: skew(45deg) translateX(0px) translateY(-40px); /* 원래 위치로 돌아옴 */
+    transform: skew(45deg) translateX(0px) translateY(-40px);
+    /* 원래 위치로 돌아옴 */
   }
 }
 
@@ -454,7 +490,8 @@ button:disabled {
   position: absolute;
   transform: skew(45deg) translateX(0px) translateY(-50px);
   transform-origin: center;
-  animation: float 2s infinite ease-in-out; /* 애니메이션 적용 */
+  animation: float 2s infinite ease-in-out;
+  /* 애니메이션 적용 */
 }
 
 .allBoard {
