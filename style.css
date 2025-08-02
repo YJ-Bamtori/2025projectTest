@@ -43,7 +43,7 @@ body {
 
 /* 프로필이미지 */
 
-#YellowRank {
+#MintRank {
   position: absolute;
   top: 32px;
   right: 0px;
@@ -57,7 +57,7 @@ body {
   color: #fff;
 }
 
-#MintRank {
+#BlueRank {
   position: absolute;
   bottom: 32px;
   right: 0px;
@@ -71,7 +71,7 @@ body {
   color: #fff;
 }
 
-#BlueRank {
+#YellowRank {
   position: absolute;
   bottom: 32px;
   left: 0px;
@@ -160,47 +160,70 @@ body {
 }
 
 .pieces-left {
-  display: flex;
+  display: none;
   margin-left: 32px;
   gap: 12px;
   justify-content: left;
+
 }
 
 .pieces-right {
-  display: flex;
+  display: none;
   margin-right: 32px;
   gap: 12px;
   justify-content: right;
 }
 
-.blueBox {
-  border-radius: 13.133px;
-  border: 1.642px solid #fff;
-  background: #3b62ff;
-  box-shadow: 2.463px 3.283px 0px 0px #fff;
-  width: 50.308px;
-  height: 46.33px;
-  pointer-events: none;
+.vote-left {
+  display: flex;
+  margin-left: 32px;
+  gap: 12px;
+  justify-content: left;
+  width: calc(320px - 32px);
+  overflow: hidden;
 }
 
-.mintBox {
-  border-radius: 13.133px;
-  border: 1.642px solid #fff;
-  background: #49bfaf;
-  box-shadow: 2.463px 3.283px 0px 0px #fff;
-  width: 50.308px;
-  height: 46.33px;
-  pointer-events: none;
+.vote-right {
+  display: flex;
+  margin-right: 32px;
+  gap: 12px;
+  justify-content: right;
+  width: calc(320px - 32px);
+  overflow: hidden;
 }
 
-.yellowBox {
-  border-radius: 13.133px;
-  border: 1.642px solid #fff;
-  background: var(--swtich_yellow, #ffaa3b);
-  box-shadow: 2.463px 3.283px 0px 0px #fff;
-  width: 50.308px;
-  height: 46.33px;
-  pointer-events: none;
+.no,
+.yes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  gap: 4px;
+  flex: 1;
+  height: 48px;
+  padding: 16px 12px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.no {
+  background-color: #EEEEEE;
+  color: #626262;
+}
+
+.yes {
+  background-color: #49BFAF;
+  color: #FFFFFF;
+}
+
+.no img,
+.yes img {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
 }
 
 .redBox {
@@ -214,6 +237,54 @@ body {
 }
 
 .redBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.blueBox {
+  border-radius: 13.133px;
+  border: 1.642px solid #fff;
+  background: #3b62ff;
+  box-shadow: 2.463px 3.283px 0px 0px #fff;
+  width: 50.308px;
+  height: 46.33px;
+  pointer-events: none;
+}
+
+.blueBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mintBox {
+  border-radius: 13.133px;
+  border: 1.642px solid #fff;
+  background: #49bfaf;
+  box-shadow: 2.463px 3.283px 0px 0px #fff;
+  width: 50.308px;
+  height: 46.33px;
+  pointer-events: none;
+}
+
+.mintBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.yellowBox {
+  border-radius: 13.133px;
+  border: 1.642px solid #fff;
+  background: var(--swtich_yellow, #ffaa3b);
+  box-shadow: 2.463px 3.283px 0px 0px #fff;
+  width: 50.308px;
+  height: 46.33px;
+  pointer-events: none;
+}
+
+.yellowBox img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -563,16 +634,7 @@ button:disabled {
   justify-content: center;
 }
 
-.condition {
-  display: flex;
-  padding: 8px 16px;
-  flex-direction: row;
-  gap: 8px;
-  border-radius: 8px;
-  background: #eee;
-  padding: 8px, 16px, 8px, 16px;
-  width: 100%;
-}
+
 
 .modal-contents {
   display: flex;
@@ -601,4 +663,50 @@ button:disabled {
   align-items: center;
   gap: 12px;
   width: 100%;
+}
+
+#missioncontents {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  color: #5E5E5E;
+}
+
+.condition {
+  display: flex;
+  padding: 8px 16px;
+  flex-direction: row;
+  display: flex;
+  border-radius: 8px;
+  background: #eee;
+  padding: 8px, 16px, 8px, 16px;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+
+}
+
+#conditionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #5E5E5E;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+#conditionGoal {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+#conditionGoal p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
 }
